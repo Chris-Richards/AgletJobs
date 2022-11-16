@@ -1,0 +1,77 @@
+.card {
+	border: none;
+	border-radius: 8px !important;
+	border-bottom: 1px solid #c0c0c0;
+	background-color: #d1d1e9;
+	margin-bottom: 6px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+}
+
+.navbar-brand {
+	font-weight: 600;
+	font-size: 24px;
+}
+
+.nav-link {
+	color: #333 !important;
+	font-weight: 500;
+}
+
+.form-control,
+.form-select {
+	background-color: #eeeef7 !important;
+}
+
+.job-title {
+	/*color: #DC3545;*/
+	color: #2b2c34;
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.job-title:hover {
+	/*color: #dc3545;*/
+	text-decoration: underline;
+}
+
+.card-header,
+.card-footer {
+	border: none;
+	border-radius: 8px !important;
+	background-color: #d1d1e9;
+}
+
+.featured {
+	border: 1px solid #c0c0c0;
+	/*border-left: 3px solid #DC3545;*/
+	border-left: 3px solid #6246ea;
+	background-color: #d1d1e9;
+}
+
+.btn-danger {
+	background-color: #e45858;
+	border-color: #e45858;
+}
+
+.bg-danger {
+	background-color: #e45858 !important;
+}
+
+.bg-primary {
+	background-color: #6246ea !important;
+}
+
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:focus {
+	background-color: #e45858 !important;
+	outline: none !important;
+	border-color: #e45858 !important;
+}
+
+.accordion-button:not(.collapsed) {
+	color: #2b2c34 !important;
+	background-color: #d1d1e9 !important;
+	outline: none !important;
+}
