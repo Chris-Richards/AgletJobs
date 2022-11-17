@@ -23,7 +23,7 @@ class ViewController extends Controller
     
     public function index()
     {
-        $stripe = new \Stripe\StripeClient('sk_test_51LJ98QLzaPfDS5cOf6Ue4C4zpbcyutYFJPUpvirvQ5SJKB6QxoO7JM1ZfExToPsErhIZoW4T58Q3h5rAzHIKrMGG00M2xPcEie');
+        $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
         $JobController = new JobController();
 
@@ -118,7 +118,7 @@ class ViewController extends Controller
 
     public function job($id, Request $request)
     {
-        $stripe = new \Stripe\StripeClient('sk_test_51LJ98QLzaPfDS5cOf6Ue4C4zpbcyutYFJPUpvirvQ5SJKB6QxoO7JM1ZfExToPsErhIZoW4T58Q3h5rAzHIKrMGG00M2xPcEie');
+        $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
         $job = Job::where('id', '=', $id)->first();
 

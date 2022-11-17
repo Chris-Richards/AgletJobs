@@ -1,4 +1,4 @@
-<?php
+'<?php
 
 namespace App\Http\Controllers\Auth;
 
@@ -64,7 +64,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $stripe = new \Stripe\StripeClient('sk_test_51LJ98QLzaPfDS5cOf6Ue4C4zpbcyutYFJPUpvirvQ5SJKB6QxoO7JM1ZfExToPsErhIZoW4T58Q3h5rAzHIKrMGG00M2xPcEie');
+        $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
         $customer = $stripe->customers->create([
             'name' => $data['name'],
             'email' => $data['email'],

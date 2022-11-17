@@ -109,7 +109,7 @@ class JobController extends Controller
         $job->type = 1;
         $job->save();
 
-        $stripe = new \Stripe\StripeClient('sk_test_51LJ98QLzaPfDS5cOf6Ue4C4zpbcyutYFJPUpvirvQ5SJKB6QxoO7JM1ZfExToPsErhIZoW4T58Q3h5rAzHIKrMGG00M2xPcEie');
+        $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
         // $invoice = $stripe->invoices->create([
         //     'customer' => Auth::user()->stripe,
@@ -165,7 +165,7 @@ class JobController extends Controller
         $job->type = 2;
         $job->save();
 
-        $stripe = new \Stripe\StripeClient('sk_test_51LJ98QLzaPfDS5cOf6Ue4C4zpbcyutYFJPUpvirvQ5SJKB6QxoO7JM1ZfExToPsErhIZoW4T58Q3h5rAzHIKrMGG00M2xPcEie');
+        $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
 
         $stripe->invoiceItems->create([
             'customer' => Auth::user()->stripe,
