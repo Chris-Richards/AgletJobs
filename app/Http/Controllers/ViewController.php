@@ -148,7 +148,7 @@ class ViewController extends Controller
             $amount = 2500;
             $description = "Job Ad Promotion";
         } else {
-            $amount = 2000;
+            $amount = 5000;
             $description = "Job Ad Publish";
         }
 

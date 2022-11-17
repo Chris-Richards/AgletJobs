@@ -129,7 +129,7 @@ class JobController extends Controller
 
         $stripe->invoiceItems->create([
             'customer' => Auth::user()->stripe,
-            'price' => 'price_1LRsleLzaPfDS5cOT0biLZ17',
+            'price' => 'price_1M4xxFLzaPfDS5cOvETzszXZ',
         ]);
 
         $invoice = $stripe->invoices->create([
@@ -170,7 +170,7 @@ class JobController extends Controller
 
         $stripe->invoiceItems->create([
             'customer' => Auth::user()->stripe,
-            'price' => 'price_1LRslwLzaPfDS5cOV5zmNhVk',
+            'price' => 'price_1M4xxbLzaPfDS5cOCWq3QHAW',
         ]);
 
         $invoice = $stripe->invoices->create([

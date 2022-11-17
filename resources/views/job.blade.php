@@ -58,7 +58,7 @@
                 //`Elements` instance that was used to create the Payment Element
                 elements,
                 confirmParams: {
-                  return_url: 'http://localhost:8000/job/{{ $job->id }}/promote',
+                  return_url: '/job/{{ $job->id }}/promote',
                 },
               });
 
@@ -136,7 +136,7 @@
                 //`Elements` instance that was used to create the Payment Element
                 elements,
                 confirmParams: {
-                  return_url: 'http://localhost:8000/job/{{ $job->id }}/publish',
+                  return_url: '/job/{{ $job->id }}/publish',
                 },
               });
 

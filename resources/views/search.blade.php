@@ -62,7 +62,7 @@
                         <span class="badge bg-primary" style="float:right; margin-left: 4px;">{{ $tag }}</span>
                         @endforeach
                         <a class="job-title" href="/job/{{ $job->id }}"><span class="">{{ $job->title }}</span></a><br>
-                        <span class="job-company"><strong>{{ $job->user()->first()->company_name }}</strong></span><br>
+                        <span class="job-company"><strong>{{ $job->company_name }}</strong></span><br>
                         <span class="job-loc"><strong>{{ $job->location()->city }}, {{ $job->location()->state }}</strong></span>
 
 
