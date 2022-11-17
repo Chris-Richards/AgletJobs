@@ -143,12 +143,12 @@ class ViewController extends Controller
         $amount = 0;
         $description = "";
 
-        if($job->status = 1)
+        if($job->status == 1)
         {
-            $amount = 1400;
+            $amount = 2500;
             $description = "Job Ad Promotion";
         } else {
-            $amount = 700;
+            $amount = 2000;
             $description = "Job Ad Publish";
         }
 
