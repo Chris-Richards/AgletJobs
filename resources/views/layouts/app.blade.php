@@ -30,8 +30,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-</head>
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZD4XTJ4QS"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -40,6 +39,7 @@
 
   gtag('config', 'G-QZD4XTJ4QS');
 </script>
+</head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 3px solid #6246ea; background-color: #d1d1e9 !important;">
