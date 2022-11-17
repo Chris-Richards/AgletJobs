@@ -31,6 +31,15 @@
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZD4XTJ4QS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QZD4XTJ4QS');
+</script>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 3px solid #6246ea; background-color: #d1d1e9 !important;">
