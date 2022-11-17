@@ -30,7 +30,7 @@
 
             <script src="https://js.stripe.com/v3/"></script>
             <script type="text/javascript">
-            const stripe = Stripe('pk_test_51LJ98QLzaPfDS5cOGQgruHCJnLXV2vYEyaYHi2TJgxNxxTDhLHSaeQNeBi2Iqpd3ftsxNdjJ03aFtNxgGaucfAg900iiND3UKE');
+            const stripe = Stripe('pk_live_51LJ98QLzaPfDS5cOwp3urEJH9vumaADwlsJbf1bK8fJmql4eCcrNA9aRvfNO7cvR5C4Wjn7hMlm0jsoxAwDc31Hg00me3gmDmM');
 
             const options = {
               clientSecret: '{{ $intent->client_secret }}',
@@ -108,7 +108,7 @@
 
             <script src="https://js.stripe.com/v3/"></script>
             <script type="text/javascript">
-            const stripe = Stripe('pk_test_51LJ98QLzaPfDS5cOGQgruHCJnLXV2vYEyaYHi2TJgxNxxTDhLHSaeQNeBi2Iqpd3ftsxNdjJ03aFtNxgGaucfAg900iiND3UKE');
+            const stripe = Stripe('pk_live_51LJ98QLzaPfDS5cOwp3urEJH9vumaADwlsJbf1bK8fJmql4eCcrNA9aRvfNO7cvR5C4Wjn7hMlm0jsoxAwDc31Hg00me3gmDmM');
 
             const options = {
               clientSecret: '{{ $intent->client_secret }}',
