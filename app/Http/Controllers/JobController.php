@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Job;
+use App\User;
 use App\Tag;
 
 class JobController extends Controller
@@ -72,6 +73,7 @@ class JobController extends Controller
     public function create(Request $request)
     {   
         $tags = Tag::get();
+        $user = User::where('id', '=', Auth::id())->first();
 
         $job = new Job();
         $job->user_id = Auth::id();
@@ -82,6 +84,12 @@ class JobController extends Controller
         $job->other = $request->input('other');
         $job->apply_url = $request->input('url');
         $job->location = $request->input('location');
+
+        if($user->free_jobs > 0) {
+            $user->free_jobs -= 1;
+            $user->save();
+            $job->type = 1;
+        }
         // $job->entry = $request->input('entry');
 
         $jobTags = [];

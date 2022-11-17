@@ -14,6 +14,7 @@ use App\Location;
 use App\Job;
 use App\View;
 use App\Tag;
+use App\Contact;
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\AdminController;
@@ -200,6 +201,18 @@ class ViewController extends Controller
         return view('contact-us', [
             'title' => "Contact Us - Aglet"
         ]);
+    }
+
+    public function contactForm(Request $request)
+    {
+        $contact = new Contact;
+        $contact->name = $request->input('name');
+        $contact->subject = $request->input('subject');
+        $contact->email = $request->input('email');
+        $contact->body = $request->input('body');
+        $contact->save();
+
+        return redirect('/contact-us?contact=success');
     }
 
 }
