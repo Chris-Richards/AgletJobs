@@ -31,3 +31,4 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/job/{id}', 'ViewController@job');
 Route::get('/contact-us', 'ViewController@contactUs');
 Route::post('/contact-us', 'ViewController@contactForm');
+Route::get('/about', 'ViewController@about');

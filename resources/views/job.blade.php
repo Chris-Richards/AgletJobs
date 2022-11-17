@@ -186,7 +186,13 @@
                     @else
                         <a href="/login">Please login/sign up here to apply</a>
                     @endif
-                    <button class="btn btn-primary" style="float: right;">Share</button>
+                    <button class="btn btn-danger" style="float: right;" id="myBtn">Share</button>
+                </div>
+            </div>
+
+            <div class="toast" id="myToast">
+                <div class="toast-body">
+                    The link to this job post has been copied to your clipboard
                 </div>
             </div>
         </div>

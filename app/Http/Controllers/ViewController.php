@@ -215,4 +215,11 @@ class ViewController extends Controller
         return redirect('/contact-us?contact=success');
     }
 
+    public function about()
+    {
+        return view('about', [
+            'title' => "About - Aglet"
+        ]);
+    }
+
 }

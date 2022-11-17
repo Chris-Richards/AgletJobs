@@ -75,3 +75,18 @@
 	background-color: #d1d1e9 !important;
 	outline: none !important;
 }
+
+.toast {
+	position: absolute !important;
+	z-index: 1000;
+	background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
