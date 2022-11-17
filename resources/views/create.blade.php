@@ -41,12 +41,12 @@
                                 @endforeach
                             </select>
                         </div>
+                        <label for="tags" class="form-label">Relevant Categories</label>
                         <div class="form-check mb-3">
                             {{-- <input class="form-check-input" type="checkbox" value="1" name="entry" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 Entry Level Role
                             </label><br> --}}
-
                             @foreach($tags as $tag)
                                 <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" name="{{ $tag->id }}">
                                 <label class="form-check-label">

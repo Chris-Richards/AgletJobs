@@ -48,6 +48,17 @@
                 </div>
             </div>
             @endforeach
+            {{-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7235471534491396"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7235471534491396"
+     data-ad-slot="9010330671"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script> --}}
     </div>
 
     {{-- <div class="row">
