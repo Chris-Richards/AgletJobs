@@ -168,7 +168,7 @@
                     @endforeach
                 </div>
                 <div class="card-body">
-                    <span><strong>{{ $job->user()->first()->company_name }}</strong></span><br>
+                    <span><strong>{{ $job->company_name }}</strong></span><br>
                     <span><strong>{{ $job->location()->postcode }}, {{ $job->location()->city }}, {{ $job->location()->state }}</strong></span><hr>
 
                     <span><strong>About Us</strong></span><br>

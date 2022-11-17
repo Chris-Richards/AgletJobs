@@ -76,7 +76,8 @@ class JobController extends Controller
         $job = new Job();
         $job->user_id = Auth::id();
         $job->title = $request->input('title');
-        $job->company = $request->input('title');
+        $job->company_name = $request->input('company_name');
+        $job->company = $request->input('company');
         $job->role = $request->input('role');
         $job->other = $request->input('other');
         $job->apply_url = $request->input('url');

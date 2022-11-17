@@ -14,6 +14,10 @@
                             <input type="text" class="form-control" name="title" id="title" required>
                         </div>
                         <div class="mb-3">
+                            <label for="company_name" class="form-label">Company Name</label>
+                            <input type="text" class="form-control" name="company_name" id="company_name" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="company" class="form-label">About The Company</label>
                             <textarea class="form-control" name="company" id="company" required></textarea>
                         </div>
