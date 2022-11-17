@@ -6,7 +6,7 @@
         <div class="col-md-6">
             @if($job->user_id == Auth::id() && $job->type == 1)
             <div class="alert alert-danger" role="alert">
-                <span>Your job ad is not featured! Promote it now for $14</span>
+                <span>Your job ad is not featured! Promote it now for $25</span>
             </div>
 
             <div class="card" style="margin-bottom: 14px;">
@@ -23,7 +23,7 @@
                       </div>
                     </div>
                       
-                      <button style="margin-top:14px;" class="btn btn-danger btn-block mb-3" id="submit">Complete Payment $14</button>
+                      <button style="margin-top:14px;" class="btn btn-danger btn-block mb-3" id="submit">Complete Payment $25</button>
                     </form>
                 </div>
             </div>
@@ -80,7 +80,7 @@
 
             @if($job->user_id == Auth::id() && $job->type == 0)
             <div class="alert alert-danger" role="alert">
-                <span>Your job ad is not public! Make it public now for $7</span>
+                <span>Your job ad is not public! Make it public now for $20</span>
             </div>
 
             <div class="card" style="margin-bottom: 14px;">
@@ -98,7 +98,7 @@
                     </div>
 
                       <button id="submit" class="btn btn-danger btn-block mb-3 publish-btn" style="margin-top:14px;">
-                      Complete Payment $7
+                      Complete Payment $20
                     </button>
 
                       {{-- <button style="margin-top:14px;" class="btn btn-danger btn-block mb-3" id="submit">Complete Payment $7</button> --}}
