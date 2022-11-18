@@ -14,7 +14,7 @@ class JobController extends Controller
     
     public function latest()
     {
-        $jobs = Job::where('type', '=', 2)->latest()->limit(6)->get();
+        $jobs = Job::where('type', '=', 1)->latest()->limit(6)->get();
 
         return $jobs;
     }
