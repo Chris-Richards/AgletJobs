@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<meta property="og:title" content="{{ $job->title }}" />
+<meta property="og:image" content="/Logo.png" />
+
 <div class="container">
     <div class="row justify-content-center" style="margin-bottom:24px;">
         <div class="col-md-6">
