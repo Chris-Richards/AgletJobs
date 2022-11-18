@@ -158,7 +158,7 @@
 
             <div class="card @if($job->type == 2)featured @endif">
                 <div class="card-header">
-                    {{ $job->title }}<br>
+                    <strong>{{ $job->title }}</strong><br>
                     @if($job->type == 2)
                     <span class="badge bg-danger">Featured</span>
                     @endif
