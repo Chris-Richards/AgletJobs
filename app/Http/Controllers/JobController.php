@@ -39,6 +39,7 @@ class JobController extends Controller
         } else {
             $jobs = Job::where('location', '=', $loc)
                         // ->whereJsonContains('tags', ["1"])
+                        ->where('type', '>=', '1')
                         ->latest()
                         ->paginate(15);
         }
