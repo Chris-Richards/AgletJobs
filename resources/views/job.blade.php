@@ -172,10 +172,10 @@
                     <span><strong>{{ $job->location()->postcode }}, {{ $job->location()->city }}, {{ $job->location()->state }}</strong></span><hr>
 
                     <span><strong>About Us</strong></span><br>
-                    <span>{{ $job->company }}</span><br><br>
+                    <span>{!! nl2br(e($job->company)) !!}</span><br><br>
                     <span><strong>The Role</strong></span><br>
-                    <span>{{ $job->role }}</span><br><br>
-                    <span>{{ $job->other }}</span>
+                    <span>{!! nl2br(e($job->role)) !!}</span><br><br>
+                    <span>{!! nl2br(e($job->other)) !!}</span>
                 </div>
                 <div class="card-footer">
                     {{-- <a href="{{ $job->apply_url }}" style="text-decoration: none;">
