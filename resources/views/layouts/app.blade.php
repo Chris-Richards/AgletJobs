@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/x-icon" href="Logo.png">
+    <link rel="icon" type="image/x-icon" href="/Logo.png">
 
     <title>{{ $title }}</title>
 
@@ -15,6 +15,8 @@
     <meta name="title" content="Aglet Jobs - Find Jobs Online">
     <meta name="description" content="Aglet Jobs helps people find jobs online in the easiest way possible">
     @show
+
+    <meta property="og:image" content="/Logo.png" />
 
     <meta name="keywords" content="Jobs, Online jobs, job search, mining jobs">
     <meta name="robots" content="index, follow">
