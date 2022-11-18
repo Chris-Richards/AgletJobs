@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/job/{id}/publish', 'JobController@publish');
 	Route::get('/job/{id}/promote', 'JobController@promote');
 	Route::get('/my-jobs', 'JobController@myjobs');
+	Route::get('/my-jobs/visible/{id}', 'JobController@visible');
 
 	Route::get('/admin', 'ViewController@admin');
 });

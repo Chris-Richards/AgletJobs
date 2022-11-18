@@ -9,6 +9,67 @@
 <div class="container">
     <div class="row justify-content-center" style="margin-bottom:24px;">
         <div class="col-md-6">
+            <div class="card @if($job->type == 2)featured @endif">
+                <div class="card-header">
+                    <strong>{{ $job->title }}</strong><br>
+                    @if($job->type == 2)
+                    <span class="badge bg-danger">Featured</span>
+                    @endif
+
+                    @foreach($job->tags as $tag)
+                        <span class="badge bg-primary">{{ $tag }}</span>
+                    @endforeach
+                </div>
+                <div class="card-body">
+                    <span><strong>{{ $job->company_name }}</strong></span><br>
+                    <span><strong>{{ $job->location()->postcode }}, {{ $job->location()->city }}, {{ $job->location()->state }}</strong></span><hr>
+
+                    <span><strong>About Us</strong></span><br>
+                    <span>{!! nl2br(e($job->company)) !!}</span><br><br>
+                    <span><strong>The Role</strong></span><br>
+                    <span>{!! nl2br(e($job->role)) !!}</span><br><br>
+                    <span>{!! nl2br(e($job->other)) !!}</span>
+                </div>
+                <div class="card-footer">
+                    {{-- <a href="{{ $job->apply_url }}" style="text-decoration: none;">
+                        <button class="btn btn-danger">Apply Now</button>
+                    </a> --}}
+                    @if(Auth::check())
+                        Email <span style="color: #DC3545;">{{ $job->apply_url }}</span> to apply.
+                    @else
+                        <a href="/login">Please login/sign up here to apply</a>
+                    @endif
+                    <button class="btn btn-danger" style="float: right;" id="myBtn" type="button" data-bs-toggle="modal" data-bs-target="#copy-modal">Share</button>
+                </div>
+            </div>
+
+            <div class="modal fade" id="copy-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  {{-- <div class="modal-header"> --}}
+                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
+                  {{-- </div> --}}
+                  <div class="modal-body">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float:right;"></button>
+                    <center>
+                        <span>The link to this job has been copied!</span>
+                    </center>
+                  </div>
+                  {{-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  </div> --}}
+                </div>
+              </div>
+            </div>
+
+            <div class="toast" id="myToast">
+                <div class="toast-body">
+                    The link to this job post has been copied to your clipboard
+                </div>
+            </div>
+
+            <!-- STRIPE ELEMENTS -->
+
             @if($job->user_id == Auth::id() && $job->type == 1)
             <div class="alert alert-danger" role="alert">
                 <span>Your job ad is not featured! Promote it now for ${{$intent->amount / 100}}</span>
@@ -160,46 +221,6 @@
             });
             </script>
             @endif
-
-            <div class="card @if($job->type == 2)featured @endif">
-                <div class="card-header">
-                    <strong>{{ $job->title }}</strong><br>
-                    @if($job->type == 2)
-                    <span class="badge bg-danger">Featured</span>
-                    @endif
-
-                    @foreach($job->tags as $tag)
-                        <span class="badge bg-primary">{{ $tag }}</span>
-                    @endforeach
-                </div>
-                <div class="card-body">
-                    <span><strong>{{ $job->company_name }}</strong></span><br>
-                    <span><strong>{{ $job->location()->postcode }}, {{ $job->location()->city }}, {{ $job->location()->state }}</strong></span><hr>
-
-                    <span><strong>About Us</strong></span><br>
-                    <span>{!! nl2br(e($job->company)) !!}</span><br><br>
-                    <span><strong>The Role</strong></span><br>
-                    <span>{!! nl2br(e($job->role)) !!}</span><br><br>
-                    <span>{!! nl2br(e($job->other)) !!}</span>
-                </div>
-                <div class="card-footer">
-                    {{-- <a href="{{ $job->apply_url }}" style="text-decoration: none;">
-                        <button class="btn btn-danger">Apply Now</button>
-                    </a> --}}
-                    @if(Auth::check())
-                        Email <span style="color: #DC3545;">{{ $job->apply_url }}</span> to apply.
-                    @else
-                        <a href="/login">Please login/sign up here to apply</a>
-                    @endif
-                    <button class="btn btn-danger" style="float: right;" id="myBtn">Share</button>
-                </div>
-            </div>
-
-            <div class="toast" id="myToast">
-                <div class="toast-body">
-                    The link to this job post has been copied to your clipboard
-                </div>
-            </div>
         </div>
     </div>
 </div>

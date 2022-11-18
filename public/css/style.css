@@ -1,20 +1,56 @@
+/* LIGHT PURPLE #d1d1e9  */
+/* FONT COLOR #2b2c34  */
+/* DARK PURPLE #6246ea  */
+
+body {
+	background-color: #f2efef !important;
+}
+
+hr {
+	border: 1px solid #6246ea !important;
+	opacity: 1;
+}
+
+.disabled {
+	
+}
+
+.modal-content {
+	border: 2px solid #6246ea !important;
+	border-radius: 8px;
+}
+
+.form-check-input:checked {
+	background-color: #6246ea;
+	border-color: #6246ea;
+}
+
 .card {
 	border: none;
 	border-radius: 8px !important;
 	border-bottom: 1px solid #c0c0c0;
-	background-color: #d1d1e9;
-	margin-bottom: 6px;
+	background-color: #fff;
+	margin-bottom: 10px;
 	box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
 }
 
+.navbar {
+	border-bottom: 3px solid #6246ea; 
+	background-color: #FFF !important;"
+}
+
 .navbar-brand {
-	font-weight: 600;
-	font-size: 24px;
+
+}
+
+.navbar-brand img {
+	max-width: 200px;
 }
 
 .nav-link {
 	color: #333 !important;
 	font-weight: 500;
+	font-size: 18px;
 }
 
 .form-control,
@@ -39,19 +75,18 @@
 .card-footer {
 	border: none;
 	border-radius: 8px !important;
-	background-color: #d1d1e9;
+	background-color: #fff;
 }
 
 .featured {
 	border: 1px solid #c0c0c0;
 	/*border-left: 3px solid #DC3545;*/
-	border-left: 3px solid #6246ea;
-	background-color: #d1d1e9;
+	border: 2px solid #6246ea;
 }
 
 .btn-danger {
-	background-color: #e45858;
-	border-color: #e45858;
+	background-color: #6246ea;
+	border-color: #6246ea;
 }
 
 .bg-danger {
@@ -65,9 +100,9 @@
 .btn-danger:hover,
 .btn-danger:active,
 .btn-danger:focus {
-	background-color: #e45858 !important;
+	background-color: #6246ea !important;
 	outline: none !important;
-	border-color: #e45858 !important;
+	border-color: #6246ea !important;
 }
 
 .accordion-button:not(.collapsed) {

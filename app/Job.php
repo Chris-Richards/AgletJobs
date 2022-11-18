@@ -19,7 +19,8 @@ class Job extends Model
         'apply_url',
         'location',
         'entry',
-        'type'
+        'type',
+        'visible'
     ];
 
     protected $casts = [

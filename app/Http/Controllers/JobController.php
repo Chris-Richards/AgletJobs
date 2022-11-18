@@ -14,9 +14,34 @@ class JobController extends Controller
     
     public function latest()
     {
-        $jobs = Job::where('type', '=', 1)->latest()->limit(6)->get();
+        $jobs = Job::where('type', '=', 1)
+            ->where('visible', '=', 1)
+            ->latest()
+            ->limit(6)
+            ->get();
 
         return $jobs;
+    }
+
+    public function visible(Request $request, $id)
+    {
+        $job = Job::where('id', '=', $id)->first();
+
+        if (Auth::user()->id == $job->user_id) {
+            if ($job->visible == 1) {
+                $job->visible = 0;
+                $job->save();
+
+                return "Job made not visible";
+            } else {
+                $job->visible = 1;
+                $job->save();
+
+                return "Job made visible";
+            }
+        } else {
+            return $job;
+        }
     }
 
     public function search($loc, $tag = null)
@@ -34,12 +59,14 @@ class JobController extends Controller
             $jobs = Job::where('location', '=', $loc)
                         ->whereJsonContains('tags', ["".$tag->id.""])
                         ->where('type', '>=', '1')
+                        ->where('visible', '=', 1)
                         ->latest()
                         ->paginate(15);
         } else {
             $jobs = Job::where('location', '=', $loc)
                         // ->whereJsonContains('tags', ["1"])
                         ->where('type', '>=', '1')
+                        ->where('visible', '=', 1)
                         ->latest()
                         ->paginate(15);
         }
@@ -48,6 +75,7 @@ class JobController extends Controller
 
         $featured = Job::where('location', '=', $loc)
                     ->where('type', '=', 2)
+                    ->where('visible', '=', 1)
                     ->inRandomOrder()
                     ->take(2)
                     ->get();
