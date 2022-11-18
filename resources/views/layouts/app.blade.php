@@ -10,8 +10,12 @@
 
     <title>{{ $title }}</title>
 
+
+    @section('head_content')
     <meta name="title" content="Aglet Jobs - Find Jobs Online">
     <meta name="description" content="Aglet Jobs helps people find jobs online in the easiest way possible">
+    @show
+
     <meta name="keywords" content="Jobs, Online jobs, job search, mining jobs">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">

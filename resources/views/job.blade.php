@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
+@section('head_content')
+    <meta name="title" content="{{ $job->title }} - Aglet Jobs">
+@overwrite
+
 @section('content')
-<meta property="og:title" content="{{ $job->title }}" />
-<meta property="og:image" content="/Logo.png" />
 
 <div class="container">
     <div class="row justify-content-center" style="margin-bottom:24px;">
