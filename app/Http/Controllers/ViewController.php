@@ -144,24 +144,30 @@ class ViewController extends Controller
         $amount = 0;
         $description = "";
 
-        if($job->type == 1)
-        {
-            $amount = 2500;
-            $description = "Job Ad Promotion";
-        } else {
-            $amount = 500;
-            $description = "Job Ad Publish";
-        }
+        $intent = null;
 
-        $intent = $stripe->paymentIntents->create(
-          [
-            'amount' => $amount,
-            'currency' => 'aud',
-            'customer' => Auth::user()->stripe,
-            'description' => $description,
-            'automatic_payment_methods' => ['enabled' => true],
-          ]
-        );
+        if (Auth::check()) {
+            if (Auth::user()->id == $job->user_id) {
+                if($job->type == 1)
+                {
+                    $amount = 2500;
+                    $description = "Job Ad Promotion";
+                } else {
+                    $amount = 500;
+                    $description = "Job Ad Publish";
+                }
+
+                $intent = $stripe->paymentIntents->create(
+                  [
+                    'amount' => $amount,
+                    'currency' => 'aud',
+                    'customer' => Auth::user()->stripe,
+                    'description' => $description,
+                    'automatic_payment_methods' => ['enabled' => true],
+                  ]
+                );
+            }
+        }
 
         $tags = [];
 
