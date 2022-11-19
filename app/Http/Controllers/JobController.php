@@ -115,11 +115,16 @@ class JobController extends Controller
         $job->apply_url = $request->input('url');
         $job->location = $request->input('location');
 
-        if($user->free_jobs > 0) {
-            $user->free_jobs -= 1;
-            $user->save();
-            $job->type = 1;
-        }
+        // if($user->free_jobs > 0) {
+        //     $user->free_jobs -= 1;
+        //     $user->save();
+        //     $job->type = 1;
+        // }
+
+        // FREE JOBS FOREVER
+        $job->type = 1;
+
+
         // $job->entry = $request->input('entry');
 
         $jobTags = [];
@@ -208,7 +213,8 @@ class JobController extends Controller
 
         $stripe->invoiceItems->create([
             'customer' => Auth::user()->stripe,
-            'price' => 'price_1M4xxbLzaPfDS5cOCWq3QHAW',
+            'price' => 'price_1M4xxbLzaPfDS5cOCWq3QHAW', // LIVE MODE
+            // 'price' => 'price_1LRslwLzaPfDS5cOV5zmNhVk', // TEST MODE
         ]);
 
         $invoice = $stripe->invoices->create([

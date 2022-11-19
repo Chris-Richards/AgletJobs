@@ -30,7 +30,7 @@
                             <textarea class="form-control" name="other" id="other"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="url" class="form-label">Email To Apply</label>
+                            <label for="url" class="form-label">Email / Website To Apply</label>
                             <input type="text" class="form-control" name="url" id="url" required />
                         </div>
                         <div class="mb-3">
