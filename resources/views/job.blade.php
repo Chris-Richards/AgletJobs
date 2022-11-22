@@ -125,7 +125,8 @@
                     <span>{!! nl2br(e($job->company)) !!}</span><br><br>
                     <span><strong>The Role</strong></span><br>
                     <span>{!! nl2br(e($job->role)) !!}</span><br><br>
-                    <span>{!! nl2br(e($job->other)) !!}</span>
+                    <span>{!! nl2br(e($job->other)) !!}</span><br><br>
+                    <span>Quote job reference a-{{ $job->id }} when applying</span>
                 </div>
                 <div class="card-footer">
                     {{-- <a href="{{ $job->apply_url }}" style="text-decoration: none;">
