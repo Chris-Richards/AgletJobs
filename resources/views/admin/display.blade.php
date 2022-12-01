@@ -23,7 +23,7 @@ function myTimer() {
 
 <div class="center">
 	<div style="margin:0;">
-		<h4>Total Users</h4>
+		<h4>Total Views</h4>
 		<h5 id="count">{{ $count }}</h5>
 	</div>
 </div>

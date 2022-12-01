@@ -39,7 +39,7 @@ class AdminController extends Controller
 
     public function ajax()
     {
-        $userCount = User::count();
+        $userCount = View::count();
         return $userCount;
     }
 
