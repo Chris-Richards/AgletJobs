@@ -282,10 +282,12 @@ class JobController extends Controller
         $employer = Employer::where('user_id','=',Auth::id())->first();
         $time = new Carbon($employer->expiry);
 
-        if ($time->isPast()) {
-            $employer->active = 0;
-            $employer->expiry = null;
-            $employer->save();
+        if ($employer->active = 1) {
+            if ($time->isPast()) {
+                $employer->active = 0;
+                $employer->expiry = null;
+                $employer->save();
+            }
         }
 
         switch ($f_1) {
