@@ -15,9 +15,14 @@ use App\Job;
 use App\View;
 use App\Tag;
 use App\Contact;
+use App\User;
+use App\Skill;
+use App\Application;
+use App\Blog;
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 
 class ViewController extends Controller
 {
@@ -35,7 +40,8 @@ class ViewController extends Controller
         return view('index', [
             'jobs' => $JobController->latest(),
             'locations' => $locations,
-            'title' => "Aglet - Home"
+            'title' => "Aglet - Home",
+            'user' => Auth::user()
         ]);
     }
 
@@ -180,22 +186,57 @@ class ViewController extends Controller
 
         $job->tags = $tags;
 
+        $applied = 0;
+
+        if(Application::where('job_id', '=', $id)
+            ->where('user_id', '=', Auth::id())
+            ->first()) {
+            $applied = 1;
+        }
+
+        $applications = Application::where('job_id', '=', $id)->get();
+
+        // if(Auth::user()->employee()->first()) {
+        //     return Auth::user()->employee()->first();
+        // }
+
         return view('job', [
             'job' => $job,
             'intent' => $intent,
-            'title' => $job->title . ' - Aglet'
+            'title' => $job->title . ' - Aglet',
+            'applied' => $applied,
+            'applications' => $applications,
         ]);
     }
 
     public function admin()
     {
-        if(Auth::user()->account_type == 2) {
+        if(Auth::user()->account_type == 3) {
             $admin = new AdminController;
             $totals = $admin->getAnalytics();
+
+            $contacts = Contact::latest()->get();
+
+            $users = User::latest()->limit(10)->get();
 
             return view('admin.dashboard', [
                 'title' => 'Admin Dashboard - Aglet',
                 'totals' => $totals,
+                'contacts' => $contacts,
+                'recent' => $users,
+            ]);
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function display()
+    {
+        if(Auth::user()->account_type == 3) {
+            $users = User::count();
+
+            return view('admin.display', [
+                'count' => $users
             ]);
         } else {
             return redirect('/');
@@ -223,9 +264,54 @@ class ViewController extends Controller
 
     public function about()
     {
+        $blogs = Blog::latest()->limit(6)->get();
+
         return view('about', [
-            'title' => "About - Aglet"
+            'title' => "Resources - Aglet",
+            'blogs' => $blogs
+        ]);
+    }
+
+    public function blog($id)
+    {
+        $BlogController = new BlogController();
+        
+        return $BlogController->view($id);
+    }
+
+    public function blogCreate()
+    {
+        $tags = Tag::get();
+
+        return view('blogs.create', [
+            'tags' => $tags,
+            'title' => 'Create Blog - Aglet'
         ]);
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

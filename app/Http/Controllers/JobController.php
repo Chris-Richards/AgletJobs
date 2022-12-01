@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Job;
 use App\User;
 use App\Tag;
+use App\Application;
+use App\Employee;
 
 class JobController extends Controller
 {
@@ -246,4 +248,58 @@ class JobController extends Controller
         ]);
     }
 
+    public function apply(Request $request, $id)
+    {
+        $employee = Employee::where('user_id', '=', Auth::id())->first();
+
+        $application = new Application();
+        $application->user_id = Auth::id();
+        $application->employee_id = $employee->id;
+        $application->cover_letter = $request->input('cover');
+        $application->job_id = $id;
+        $application->save();
+
+        return redirect('/job/'.$id.'?result=success');
+    }
+
+    public function candidates()
+    {
+        $employees = Employee::where('visible','=',1)->get();
+
+        return view('candidates', [
+            'employees' => $employees,
+            'title' => 'Candidates Search - Aglet'
+        ]);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

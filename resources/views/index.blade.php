@@ -2,9 +2,124 @@
 
 @section('content')
 
+<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+<script src="https://unpkg.com/@yaireo/tagify"></script>
+<script src="https://unpkg.com/@yaireo/tagify@3.1.0/dist/tagify.polyfills.min.js"></script>
+
+@auth
+    @if($user->account_type == 0)
+        <div class="modal fade" id="myToast" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float:right;"></button> --}}
+                        <center>
+                            <h4>It's time to setup your profile</h4>
+                            <span>Please select your account type below and fill out the required details.</span>
+                        </center>
+                        <hr>
+                        <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Job Seeker</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Employer</button>
+                            </li>
+                        </ul>
+                        <hr>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                                <form action="/profile/update/employee" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label class="form-label">Skills (Press Enter/Return to save a skill)</label>
+                                        <input name="skills" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="location" class="form-label">Hire Location</label>
+                                        <select id="location" name="location" class="form-select">
+                                            @foreach($locations as $loc)
+                                            <option value="{{ $loc->id }}">{{ $loc->city }}, {{ $loc->state }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Upload Resume</label>
+                                        <input type="file" name="resume" class="form-control" required>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="visible" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                        Visible Profile
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-danger">Save</button>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                                <form action="/profile/update/employer" method="POST">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label class="form-label">Business Name</label>
+                                        <input class="form-control" type="text" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Business ABN/ACN</label>
+                                        <input class="form-control" type="text" name="abn" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Short Business Description (this is visible on job listings)</label>
+                                        <textarea class="form-control" name="about" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-danger">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#myToast').modal('show');
+
+                var input = document.querySelector('input[name=skills]');
+
+                // initialize Tagify on the above input node reference
+                new Tagify(input, {
+                    whitelist : [],
+                    dropdown : {
+                        classname     : "color-blue",
+                        enabled       : 0,              // show the dropdown immediately on focus
+                        maxItems      : 6,
+                        position      : "text",         // place the dropdown near the typed text
+                        closeOnSelect : false,          // keep the dropdown open after selecting a suggestion
+                        highlightFirst: true
+                    }
+                });
+                input.addEventListener('change', onChange)
+
+                function onChange(e){
+                  // outputs a String
+                  console.log(e.target.value)
+                }
+              });
+        </script>
+    @else
+
+    @endif
+@endauth
+
 <div class="container">
     <div class="row justify-content-center" style="margin-bottom:24px;">
         <div class="col-md-5">
+            {{-- @guest
+            <div class="alert alert-primary" role="alert">
+                <span>Sign up to receive new job alerts!</span>
+            </div>
+            @endguest --}}
+
             <div class="card">
                 <div class="card-body">
                     <center>
@@ -48,17 +163,6 @@
                 </div>
             </div>
             @endforeach
-            {{-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7235471534491396"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-7235471534491396"
-     data-ad-slot="9010330671"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script> --}}
     </div>
 
     {{-- <div class="row">

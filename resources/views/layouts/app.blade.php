@@ -24,9 +24,8 @@
     <meta name="language" content="English">
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{ asset('js/minely.js?v=1.0') }}" defer></script>
 
     <!-- Fonts -->
@@ -65,7 +64,7 @@
           <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" href="/about">Resources</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/job/create">Create Job Ad</a>
@@ -91,8 +90,27 @@
                             {{ Auth::user()->name }}
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/my-jobs">My Job Ads</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            @if(Auth::user()->account_type == 1)
+                                <li><a class="dropdown-item" href="/profile">My Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                            @endif
+                            @if(Auth::user()->account_type == 2)
+                                <li><a class="dropdown-item" href="/my-jobs">My Job Ads</a></li>
+                                <li><a class="dropdown-item" href="/candidates">Find Candidates</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                            @endif
+                            @if(Auth::user()->account_type == 3)
+                                <li><a class="dropdown-item" href="/my-jobs">My Job Ads</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/candidates">Find Candidates</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="/admin">Admin Dashboard</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/admin/blogs">Blog Dashboard</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                            @endif
                             <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

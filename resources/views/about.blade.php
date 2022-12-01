@@ -3,46 +3,74 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card featured">
+        <div class="col-md-12">
+            <div class="card">
                 <div class="card-body">
-                    <h3>Business Owners</h3>
-                    <span>Are you spending large amounts of money on advertising jobs?</span><br><br>
-                    <span>Are you a small business that would like assistance to write a captivating job advertisement?</span><br><br>
-                    <span>Are you a large business advertising many positions regularly and looking for a package deal for unlimited advertising?</span><br><br>
-                    <span>Would you like to have cadidates apply directly to you?</span>
+                    <h3>Aglet Jobs</h3>
+                    <span>Alget Jobs provides the all round services catered to job seekers, employers and recruiters. Our platform makes is as easy as possible to fulfil your needs in the industry.</span>
                 </div>
             </div>
+        </div>
 
-            <div class="card featured">
-                <div class="card-body">
-                    <h3>Job Seekers</h3>
-                    <span>Would you like to know who you are applying for work with prior to applying?</span><br><br>
-                    <span>Are you searching for an opportunity to enter a new industry or returning to work after time off?</span><br><br>
-                    <span>Would you like to be listed as a candidate anonymously so potential employers can consider you without the risk of your current employer knowing you are looking for work?</span><br><br>
-                    <span>Do you need some assistance to write a stand out resume?</span>
+        <div class="col-md-6">
+            <h3>FAQ</h3>
+            <hr>
+            <div class="accordion card" id="accordionExample">
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    What is FIFO?
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    "FIFO" is an acronym used to refer to fly-in-fly-out jobs, usually these jobs are in the mining industry. Some other acronyms include "DIDO" drive-in-drive-out and "BIBO" bus-in-bus-out.
+                  </div>
                 </div>
-            </div>
-
-            <div class="card featured">
-                <div class="card-body">
-                    <h3><i>If you answered yes to any of these questions, we are here to help!</i></h3>
-                    <span>Aglet is a new Townsville based "job search" website. Owned and operated by a local Townsville lad keen to help employers find the perfect staff and job seekers find the perfect job, without the excessive charges and limited time frames on job listings.</span><br><br>
-                    <span>We can do as little or as much as you require to assist you in your job/staff search.</span><br><br>
-                    <span>Aglet is FREE for job seekers to create a public or anonymous profile so that potential employers can find you!</span><br><br>
-                    <span>With job advertisements starting as low as $20 per listing, as well as package deals for ongoing advertising, or multiple jobs, searching for staff can be an easy and cost effective process.</span>
+              </div>
+              {{-- <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How do I make a resume?
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  </div>
                 </div>
-            </div>
-
-            <div class="card featured">
-                <div class="card-body" style="font-size: 18px; text-align: center;">
-                    <span><i>Let us advertise one of your available postitions for 1 month for FREE</i></span><br>
-
-                    <span>You do not pay anything for this, you do not have to enter credit card details or subscribe to any kind of service. This is a simple free listing to help kick off this new job site. If after the free month you are impressed enough to continue using our services, then you can choose to continue and choose a package that works for you.</span>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Do I need a cover letter?
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  </div>
                 </div>
+              </div> --}}
             </div>
+        </div>
 
-            
+        <div class="col-md-6">
+            <h3>Blog Posts</h3>
+            <hr>
+            @foreach($blogs as $b)
+                <div class="card">
+                    <div class="card-body">
+                        <h5>{{ $b->title }}</h5>
+                        <hr>
+                        <span>{{ Str::limit(strip_tags($b->body), 140) }}</span>
+                        <hr>
+                        <a href="/blog/{{ $b->id }}" style="float:right;">
+                            <button class="btn btn-danger">Read More</button>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>
