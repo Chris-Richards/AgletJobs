@@ -59,7 +59,7 @@
                         <span class="badge bg-danger" style="float:right; margin-left: 4px;">Featured</span>
                         @endif
                         @foreach($job->tags as $tag)
-                        <span class="badge bg-primary" style="float:right; margin-left: 4px;">{{ $tag }}</span>
+                            <span class="badge bg-primary" style="float:right; margin-left: 4px;">{{ $tag }}</span>
                         @endforeach
                         <a class="job-title" href="/job/{{ $job->id }}"><span class="">{{ $job->title }}</span></a><br>
                         <span class="job-company"><strong>{{ $job->company_name }}</strong></span><br>

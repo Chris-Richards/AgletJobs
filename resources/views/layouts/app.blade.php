@@ -16,6 +16,8 @@
     <meta name="description" content="Aglet Jobs helps people find jobs online in the easiest way possible">
     @show
 
+
+
     <meta property="og:image" content="/Logo.png" />
 
     <meta name="keywords" content="Jobs, Online jobs, job search, mining jobs">
@@ -26,7 +28,7 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/minely.js?v=1.0') }}" defer></script>
+    <script src="{{ asset('js/minely.js?v=1.1') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -35,7 +37,7 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/style.css?v=1.0') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css?v=1.1') }}" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7235471534491396"
      crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->

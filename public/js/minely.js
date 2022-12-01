@@ -2,6 +2,10 @@ function SearchLocation() {
     window.location.href = "/search/" + $("#location").val() + "";
 }
 
+function FilterLocation() {
+    window.location.href = "/candidates/" + $("#location").val() + "";
+}
+
 function submitPayment() {
     $("#submit").prop('value', 'Loading..')
     $("#submit").attr('disabled', 'true')

@@ -10,6 +10,8 @@ class Employer extends Model
         'user_id',
         'business_name',
         'business_abn',
-        'about'
+        'about',
+        'active',
+        'expiry'
     ];
 }

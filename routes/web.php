@@ -28,7 +28,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/my-jobs', 'JobController@myjobs');
 	Route::get('/my-jobs/visible/{id}', 'JobController@visible');
-	Route::get('/candidates', 'JobController@candidates');
+	Route::get('/candidates/subscribe', 'JobController@subscribe');
+	Route::get('/candidates/{f_1?}/{f_2?}', 'JobController@candidates');
 
 	Route::get('/admin', 'ViewController@admin');
 	Route::get('/admin/display', 'ViewController@display');

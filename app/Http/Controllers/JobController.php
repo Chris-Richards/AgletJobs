@@ -10,6 +10,11 @@ use App\User;
 use App\Tag;
 use App\Application;
 use App\Employee;
+use App\Employer;
+use App\Location;
+use App\Payment;
+
+use Carbon\Carbon;
 
 class JobController extends Controller
 {
@@ -262,14 +267,87 @@ class JobController extends Controller
         return redirect('/job/'.$id.'?result=success');
     }
 
-    public function candidates()
+    public function candidates($f_1 = null, $f_2 = null)
     {
-        $employees = Employee::where('visible','=',1)->get();
+        $employees = collect();
+        $current = 0;
+        $locations = Location::get();
+        $tags = Tag::get();
+
+        $amount = 0;
+        $description = "";
+
+        $intent = null;
+
+        $employer = Employer::where('user_id','=',Auth::id())->first();
+        $time = new Carbon($employer->expiry);
+
+        if ($time->isPast()) {
+            $employer->active = 0;
+            $employer->expiry = null;
+            $employer->save();
+        }
+
+        switch ($f_1) {
+            case null:
+                $employees = Employee::where('visible','=',1)->get();
+                break;
+            
+            default:
+                $employees = Employee::where('visible','=',1)
+                            ->where('location', '=', $f_1)
+                            ->get();
+
+                $current = $f_1;
+                break;
+        }
+
+        if(Auth::user()->employer()->first()->active == 1) {
+
+        } else {
+            $stripe = new \Stripe\StripeClient(config('app.stripe_secret'));
+
+            if (Auth::check()) {
+                    $amount = 7000;
+                    $description = "Candidates search database (1 month)";
+
+                    $intent = $stripe->paymentIntents->create(
+                      [
+                        'amount' => $amount,
+                        'currency' => 'aud',
+                        'customer' => Auth::user()->stripe,
+                        'description' => $description,
+                        // 'automatic_payment_methods' => ['enabled' => true],
+                      ]
+                    );
+            }
+        }
 
         return view('candidates', [
             'employees' => $employees,
-            'title' => 'Candidates Search - Aglet'
+            'title' => 'Candidates Search - Aglet',
+            'locations' => $locations,
+            'tags' => $tags,
+            'current' => $current,
+            'intent' => $intent
         ]);
+    }
+
+    public function subscribe()
+    {
+        $employer = Employer::where('user_id', '=', Auth::id())->first();
+
+        $payment = new Payment();
+        $payment->user_id = Auth::id();
+        $payment->amount = 70.00;
+        $payment->description = "Cadidate Database";
+        $payment->save();
+
+        $employer->active = 1;
+        $employer->expiry = Carbon::now()->addDays(31);
+        $employer->save();
+
+        return redirect('/candidates');
     }
 
 }
