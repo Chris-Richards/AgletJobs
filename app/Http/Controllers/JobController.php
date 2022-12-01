@@ -280,9 +280,9 @@ class JobController extends Controller
         $intent = null;
 
         $employer = Employer::where('user_id','=',Auth::id())->first();
-        $time = new Carbon($employer->expiry);
 
         if ($employer->active = 1) {
+            $time = new Carbon($employer->expiry);
             if ($time->isPast()) {
                 $employer->active = 0;
                 $employer->expiry = null;
