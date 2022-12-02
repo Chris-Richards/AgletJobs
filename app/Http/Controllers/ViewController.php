@@ -232,15 +232,21 @@ class ViewController extends Controller
 
     public function display()
     {
-        if(Auth::user()->account_type == 3) {
-            $users = User::count();
+        // if(Auth::user()->account_type == 3) {
+        //     $users = User::count();
+
+        //     return view('admin.display', [
+        //         'count' => $users
+        //     ]);
+        // } else {
+        //     return redirect('/');
+        // }
+
+        $users = View::count();
 
             return view('admin.display', [
                 'count' => $users
             ]);
-        } else {
-            return redirect('/');
-        }
     }
 
     public function contactUs()
@@ -286,6 +292,13 @@ class ViewController extends Controller
         return view('blogs.create', [
             'tags' => $tags,
             'title' => 'Create Blog - Aglet'
+        ]);
+    }
+
+    public function resumeGenerator()
+    {
+        return view('resume', [
+            'title' => "Free Resume Generator - Aglet Jobs"
         ]);
     }
 
