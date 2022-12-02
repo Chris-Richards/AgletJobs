@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/', 'ViewController@index');
 Route::get('/search/{city}/{tag?}', 'ViewController@search');
+Route::get('/resume', 'ViewController@resumeGenerator');
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -32,8 +33,6 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/candidates/{f_1?}/{f_2?}', 'JobController@candidates');
 
 	Route::get('/admin', 'ViewController@admin');
-	Route::get('/admin/display', 'ViewController@display');
-	Route::get('/admin/display/ajax', 'AdminController@ajax');
 
 	Route::get('/admin/blogs', 'ViewController@blogs');
 	Route::get('/admin/blog/create', 'ViewController@blogCreate');
@@ -42,6 +41,9 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::post('/profile/update/{type}', 'UserController@update');
 });
+
+Route::get('/admin/display', 'ViewController@display');
+Route::get('/admin/display/ajax', 'AdminController@ajax');
 
 Route::get('/job/{id}', 'ViewController@job');
 Route::get('/contact-us', 'ViewController@contactUs');
