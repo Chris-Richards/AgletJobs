@@ -1,4 +1,6 @@
 @extends('layouts.app')
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7235471534491396"
+     crossorigin="anonymous"></script>
 @section('head_content')
 <meta name="title" content="{{ $job->title }} - Aglet Jobs">
 @overwrite

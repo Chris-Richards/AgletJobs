@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7235471534491396"
+     crossorigin="anonymous"></script>
 @section('content')
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 <script src="https://unpkg.com/@yaireo/tagify"></script>
