@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', 'ViewController@index');
 Route::get('/search/{city}/{tag?}', 'ViewController@search');
 Route::get('/resume', 'ViewController@resumeGenerator');
+Route::post('/resume/create', 'ViewController@generateResume');
 
 Route::group(['middleware' => 'auth'], function() {
 

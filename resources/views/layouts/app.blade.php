@@ -70,6 +70,9 @@
             <a class="nav-link" href="/job/create">Create Job Ad</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/resume">Resume Builder</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/contact-us">Contact Us</a>
         </li>
       </ul>

@@ -1,0 +1,17 @@
+{
+    "lato": {
+        "normal": "\/Users\/chrisrichards\/Desktop\/Minely\/storage\/fonts\/\/1c17b90dd1f0cc1634e282cccc654760"
+    },
+    "nunito": {
+        "normal": "\/Users\/chrisrichards\/Desktop\/Minely\/storage\/fonts\/\/586f3f8a461df5c8635a870033365d5e"
+    },
+    "roboto": {
+        "italic": "\/Users\/chrisrichards\/Desktop\/Minely\/storage\/fonts\/\/71d4fad1ca0f22d70d8be7cc40bb76ab",
+        "normal": "\/Users\/chrisrichards\/Desktop\/Minely\/storage\/fonts\/\/1c4e32da7e6c8539dd3a51af38f413be"
+    },
+    "open sans": {
+        "normal": "\/Users\/chrisrichards\/Desktop\/Minely\/storage\/fonts\/\/open_sans_normal_0de70c49c12ad3d5b30897be0764f760",
+        "300": "\/Users\/chrisrichards\/Desktop\/Minely\/storage\/fonts\/\/open_sans_300_8eafd575bbaef3821514b2ae187a32c3",
+        "500": "open_sans_500_e5c00ff5fbdabfd1178bcb6213f08eaa"
+    }
+}

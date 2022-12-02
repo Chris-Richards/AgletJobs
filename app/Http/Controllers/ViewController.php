@@ -24,6 +24,8 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class ViewController extends Controller
 {
     
@@ -300,6 +302,142 @@ class ViewController extends Controller
         return view('resume', [
             'title' => "Free Resume Generator - Aglet Jobs"
         ]);
+    }
+
+    public function generateResume(Request $request)
+    {
+        // return $request->post();
+
+        // return view('layouts.resume');
+        // error_reporting(E_ALL ^ E_DEPRECATED);
+        // $pdf = PDF::loadView('layouts.resume');
+
+        // return $pdf->stream('sample.pdf');
+        $data = [
+            'name' => $request->input('name'),
+            'number' => $request->input('number'),
+            'email' => $request->input('email'),
+            'suburb' => $request->input('suburb'),
+            'state' => $request->input('state'),
+            'summary' => $request->input('summary'),
+            'postcode' => $request->input('postcode'),
+            'skills' => [],
+            'jobs' => [],
+            'edu' => [],
+            'certs' => [],
+            'refs' => [],
+        ];
+
+        $skillsJSON = json_decode($request->input('skills'));
+        $skills = [];
+
+        if (!empty($skillsJSON)) {
+            foreach($skillsJSON as $value) {
+                // array_push($skills, $value->value );
+                array_push($data['skills'], $value->value);
+            }
+        }
+
+        $skills1JSON = json_decode($request->input('tickets'));
+        $skills1 = [];
+
+        if (!empty($skills1JSON)) {
+            foreach($skills1JSON as $value) {
+                // array_push($skills, $value->value );
+                array_push($data['certs'], $value->value);
+            }
+        }
+
+        if ($request->input('job-1-title') !== null) {
+            $finish = "Present";
+            if ($request->input('job-1-finish') !== null) {
+                $finish = $request->input('job-1-finish');
+            }
+
+            $job_1 = [
+                'title' => $request->input('job-1-title'),
+                'company' => $request->input('job-1-company'),
+                'start' => $request->input('job-1-start'),
+                'finish' => $finish,
+                'summary' => $request->input('job-1-summary'),
+            ];
+
+            array_push($data['jobs'], $job_1);
+        }
+
+        if ($request->input('job-2-title') !== null) {
+            $job_1 = [
+                'title' => $request->input('job-2-title'),
+                'company' => $request->input('job-2-company'),
+                'start' => $request->input('job-2-start'),
+                'finish' => $request->input('job-2-finish'),
+                'summary' => $request->input('job-2-summary'),
+            ];
+
+            array_push($data['jobs'], $job_1);
+        }
+
+        if ($request->input('job-3-title') !== null) {
+            $job_1 = [
+                'title' => $request->input('job-3-title'),
+                'company' => $request->input('job-3-company'),
+                'start' => $request->input('job-3-start'),
+                'finish' => $request->input('job-3-finish'),
+                'summary' => $request->input('job-3-summary'),
+            ];
+
+            array_push($data['jobs'], $job_1);
+        }
+
+        if ($request->input('edu-1-name') !== null) {
+            $job_1 = [
+                'name' => $request->input('edu-1-name'),
+                'institution' => $request->input('edu-1-institution'),
+                'finish' => $request->input('edu-1-finish'),
+            ];
+
+            array_push($data['edu'], $job_1);
+        }
+
+        if ($request->input('edu-2-name') !== null) {
+            $job_1 = [
+                'name' => $request->input('edu-2-name'),
+                'institution' => $request->input('edu-2-institution'),
+                'finish' => $request->input('edu-2-finish'),
+            ];
+
+            array_push($data['edu'], $job_1);
+        }
+
+        if ($request->input('ref-1-name') !== null) {
+            $job_1 = [
+                'name' => $request->input('ref-1-name'),
+                'position' => $request->input('ref-1-position'),
+                'company' => $request->input('ref-1-company'),
+                'contact' => $request->input('ref-1-contact'),
+            ];
+
+            array_push($data['refs'], $job_1);
+        }
+
+        if ($request->input('ref-2-name') !== null) {
+            $job_1 = [
+                'name' => $request->input('ref-2-name'),
+                'position' => $request->input('ref-2-position'),
+                'company' => $request->input('ref-2-company'),
+                'contact' => $request->input('ref-2-contact'),
+            ];
+
+            array_push($data['refs'], $job_1);
+        }
+
+        // return collect($data);
+
+        // $pdf = PDF::loadView('layouts.test', ['data' => $data]);
+        // return $pdf->stream('resume.pdf');
+
+        $pdf = Pdf::loadView('layouts.resume', ['data' => $data]);
+        return $pdf->stream('invoice.pdf');
     }
 
 }
