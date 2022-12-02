@@ -85,7 +85,7 @@
                                                 <input type="text" name="job-1-start" class="form-control" placeholder="MM-YYYY">
                                             </div>
                                             <div class="col-md-6">
-                                                <label class="form-label">Finish Date</label>
+                                                <label class="form-label">Finish Date (Leave blank if current)</label>
                                                 <input type="text" name="job-1-finish" class="form-control" placeholder="MM-YYYY">
                                             </div>
                                             <div class="col-md-12">
