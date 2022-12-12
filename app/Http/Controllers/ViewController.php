@@ -66,11 +66,16 @@ class ViewController extends Controller
 
         $jobsREV = new Collection;
 
+        $title = "Jobs in " . $location->city . " - Aglet";
         // $tempJobs = $jobs->getCollection();
 
         if ($tag == null) {
             // return $jobs;
         } else {
+            $tagG = Tag::where('slug', '=', $tag)->first();
+
+            $title = "" . $tagG->name . " jobs in " . $location->city . " - Aglet";
+
             foreach ($jobs as $key => $value) {
                 $tagMatch = 0;
                 foreach ($value->tags as $vTag) {
@@ -109,7 +114,7 @@ class ViewController extends Controller
             'currentID' => $location->id,
             'currentTag' => $tag,
             'tags' => $tags,
-            'title' => "Jobs in " . $location->city . " - Aglet",
+            'title' => $title,
         ]);
     }
 
