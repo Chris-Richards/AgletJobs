@@ -2,8 +2,19 @@
 /* FONT COLOR #2b2c34  */
 /* DARK PURPLE #6246ea  */
 
+html {
+	position: relative;
+    min-height: 100%;
+}
+
 body {
 	background-color: #f2efef !important;
+}
+
+footer {
+	background-color: #fff;
+	border-top: 3px solid #6246ea;
+	padding-bottom: 0 !important;
 }
 
 hr {

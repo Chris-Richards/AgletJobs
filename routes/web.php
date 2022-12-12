@@ -20,6 +20,18 @@ Route::get('/search/{city}/{tag?}', 'ViewController@search');
 Route::get('/resume', 'ViewController@resumeGenerator');
 Route::post('/resume/create', 'ViewController@generateResume');
 
+Route::get('/tos', function() {
+	return view('tos', [
+		'title' => "Terms & Conditions | Aglet"
+	]);
+});
+
+Route::get('/privacy', function() {
+	return view('privacy', [
+		'title' => "Privacy Statement | Aglet"
+	]);
+});
+
 Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/job/create', 'ViewController@create');
@@ -38,10 +50,11 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/admin/blogs', 'ViewController@blogs');
 	Route::get('/admin/blog/create', 'ViewController@blogCreate');
 	Route::post('/admin/blog/create', 'BlogController@create');
-	Route::get('/blog/{id}', 'ViewController@blog');
 
 	Route::post('/profile/update/{type}', 'UserController@update');
 });
+
+Route::get('/blog/{id}', 'ViewController@blog');
 
 Route::get('/admin/display', 'ViewController@display');
 Route::get('/admin/display/ajax', 'AdminController@ajax');

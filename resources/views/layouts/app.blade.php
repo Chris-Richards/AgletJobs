@@ -28,7 +28,7 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/minely.js?v=1.1') }}" defer></script>
+    <script src="{{ asset('js/minely.js?v=1.2') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -37,7 +37,7 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/style.css?v=1.1') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css?v=1.2') }}" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZD4XTJ4QS"></script>
 <script>
@@ -59,7 +59,7 @@
   gtag('config', 'UA-250062195-1');
 </script>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
@@ -146,5 +146,100 @@
             @yield('content')
         </main>
     </div>
+
+<footer class="py-5" style="padding-bottom: 0 !important;">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h5>Links</h5>
+            <hr>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Home</a></li>
+              <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-muted">Resources</a></li>
+              <li class="nav-item mb-2"><a href="/job/create" class="nav-link p-0 text-muted">Create Job Ad</a></li>
+              <li class="nav-item mb-2"><a href="/resume" class="nav-link p-0 text-muted">Resume Builder</a></li>
+              <li class="nav-item mb-2"><a href="/contact-us" class="nav-link p-0 text-muted">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h5>About Aglet</h5>
+            <hr>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="/privacy" class="nav-link p-0 text-muted">Privacy Statement</a></li>
+              <li class="nav-item mb-2"><a href="/tos" class="nav-link p-0 text-muted">Terms & Conditions</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h5>Social</h5>
+            <hr>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="https://www.facebook.com/agletjobs" class="nav-link p-0 text-muted">Facebook</a></li>
+              <li class="nav-item mb-2"><a href="mailto:agletjobs@gmail.com" class="nav-link p-0 text-muted">Email</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h5>AgletJobs</h5>
+            <hr>
+            <p>Find your dream job, faster and easier than ever before on AgletJobs</p>
+          </div>
+        </div>
+
+
+        <div class="d-flex justify-content-between py-4 my-4 border-top" style="padding-bottom: 0 !important;">
+          {{-- <p>© 2021 Company, Inc. All rights reserved.</p> --}}
+           <p>&#169; {{ date("Y") }} AgletJobs. All rights reserved</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          </ul>
+        </div>
+    </div>
+  </footer>
+
+{{-- <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="footer-list">
+                    <h4>AgletJobs</h4>
+                    <span>Find your dream job, faster and easier than ever before on AgletJobs</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="footer-list">
+                    <h4>Links</h4>
+                    <a href="/">Home</a>
+                    <a href="/about">Resources</a>
+                    <a href="/job/create">Create Job Ad</a>
+                    <a href="/resume">Resume</a>
+                    <a href="/contact-us">Contact Us</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="footer-list">
+                    <h4>About Aglet</h4>
+                    <a href="/">Privacy Statement</a>
+                    <a href="/about">Terms & Conditions</a>
+                    <a href="/job/create">Protect yourself online</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="footer-list">
+                    <h4>Social</h4>
+                    <a href="/">Facebook</a>
+                    <a href="/about">Instagram</a>
+                    <a href="/job/create">Email</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; border-top: 2px solid #6246EA; position: absolute; bottom: 0; width: 100%; padding:4px">
+        <span>&#169; AgletJobs {{ date("Y") }}. All rights reserved</span>
+    </div>
+</footer> --}}
 </body>
 </html>
