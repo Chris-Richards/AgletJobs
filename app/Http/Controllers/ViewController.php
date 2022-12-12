@@ -74,7 +74,7 @@ class ViewController extends Controller
         } else {
             $tagG = Tag::where('slug', '=', $tag)->first();
 
-            $title = "" . $tagG->name . " jobs in " . $location->city . " - Aglet";
+            $title = "" . $tagG->name . " Jobs in " . $location->city . " - Aglet";
 
             foreach ($jobs as $key => $value) {
                 $tagMatch = 0;
