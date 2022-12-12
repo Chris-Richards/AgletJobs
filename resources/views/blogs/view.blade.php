@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head_content')
+<meta name="title" content="{{ $blog->title }} - Aglet Jobs">
+@overwrite
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
